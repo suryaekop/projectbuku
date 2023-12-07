@@ -1,0 +1,85 @@
+<?php
+    include APPPATH . 'views/fragment/header.php'; 
+    include APPPATH . 'views/fragment/sidebar.php' ;
+    include APPPATH . 'views/fragment/topbar.php' ;
+?>
+<div class="container-fluid">
+<main>
+    <h3>Tambah Data Buku</h3>
+    <br>
+<?php echo form_open_multipart('buku/tambah_save'); ?>
+  <div class="form-group row">
+    <label for="kode" class="col-sm-2 col-form-label">Kode Buku</label>
+    <div class="col-sm-5">
+      <input type="text" class="form-control" id="kode_buku" name="kode_buku" required="required" />
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="judul" class="col-sm-2 col-form-label">Judul Buku</label>
+    <div class="col-sm-5">
+        <input type="text" class="form-control" name="judul" id="judul" required="required"/>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="pengarang" class="col-sm-2 col-form-label">Pengarang</label>
+    <div class="col-sm-5">
+        <input type="text" class="form-control" name="pengarang" id="pengarang" required="required"/>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="penerbit" class="col-sm-2 col-form-label">Penerbit</label>
+    <div class="col-sm-5">
+        <input type="text" class="form-control" name="penerbit" id="penerbit"  required="required"/>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="tanggal_terbit" class="col-sm-2 col-form-label">Tanggal Terbit</label>
+    <div class="col-sm-5">
+        <input type="date" name="tanggal_terbit" class="form-control" id="tanggal_terbit" required="required">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="kota_terbit" class="col-sm-2 col-form-label">Kota Terbit</label>
+    <div class="col-sm-5">
+        <input type="text" name="kota_terbit" class="form-control" id="kota_terbit" required="required"/>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="jumlah_halaman" class="col-sm-2 col-form-label">Jumlah Halaman</label>
+    <div class="col-sm-5">
+        <input type="text" name="jumlah_halaman" class="form-control" id="jumlah_halaman" size="11" required="required"/>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="foto" class="col-sm-2 col-form-label">Foto</label>
+    <div class="col-sm-5">
+        <input type="file" name="foto" id="foto" class="form-control">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="idcategory" class="col-sm-2 col-form-label">Kategori</label>
+    <div class="col-sm-5">
+        <select name="idcategory" id="idcategory" class="form-control">
+            <?php
+            foreach ($kategori as $key => $kategori){
+                ?>
+                <option value="<?= $kategori['idcategory'] ?>"><?= $kategori['nama_kategori'] ?></option>
+                <?php
+                }
+                ?>
+    </select>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="foto" class="col-sm-2 col-form-label"></label>
+    <div class="col-sm-5">
+        <input class="btn btn-primary" type="submit" value="Simpan" id="submit" name="submit" />
+        <a class="btn btn-danger" href="<?= base_url() ?>buku">Kembali</a>
+    </div>
+  </div>
+<?php echo form_close(); ?>
+</main>
+</div>
+<?php
+    include APPPATH . 'views/fragment/footer.php';
+?>
